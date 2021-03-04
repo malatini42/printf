@@ -6,29 +6,60 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:06 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/03 22:36:42 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/04 11:45:48 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//En c il est nécessaire d'avoir au moins un arg required
-//pour printf a besoin de la format string
-
-int printf(const char *format, ...)
+void	ft_putchar(char c)
 {
-	va_list args;
-	int done;
-
-	va_start(args, format);
-	done = vfprintf(stdout, format, args);
-	va_end(args);
-	
-	return (done);
+	write(1, &c, 1);
 }
 
-int main(void)
+int		ft_printf(const char *format, ...)
 {
-	printf("Some we don't want to say.\n");
-	printf("Mahaut says, \"Hello World\"\n");
+	int i;
+	int count;
+//creer un compteur qui va se souvenir de combien de % on a croise ?
+	i = 0;
+	count = 0;
+	va_list args;
+	//va_start(args, ?)
+	while (format[i])
+	{
+		if (format[i] != '%')
+		{
+			ft_putchar(format[i]);
+		}
+		else
+		{
+			count++;
+			va_args(args, int);
+			//increment va_arg ?
+			i++;
+			if (format[i] == '%')
+				ft_putchar('%');
+			else if (format[i] == 'c')
+				is_c(format[i], args);
+			else if (format[i] == 's')
+				is_s(format[i], args);
+			else if (format[i] == 'x' || format[i] == 'X')
+				is_x(format[i], args);
+			else if (format[i] == 'p')
+				is_p(format[i], args);
+			else if (format[i] == 'i' || format[i] == 'd')
+			{
+
+			}
+			else if (format[i] == 'u')
+			{
+
+			}
+			return (0);
+		}
+		i++;
+	}
+	va_end(args);
+	return (1);
 }
