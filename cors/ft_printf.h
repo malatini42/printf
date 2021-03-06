@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 13:50:05 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/06 13:33:32 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 # include <stdarg.h>
 # include <string.h>
 # include <unistd.h>
-
-# define NUMERIC 1
-# define ALPHA 2
-# define PERCENT 3
-# define HEXA 4
-# define POINTER 5
-
 
 //Faire des enum pour les types etc ?
 typedef struct	s_format
