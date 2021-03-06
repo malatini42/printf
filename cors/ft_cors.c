@@ -6,24 +6,47 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 13:15:07 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 13:34:39 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/06 15:26:49 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.c"
+#include "./ft_printf.c"
 
-t_format*	ft_initialize_struct(void)
+int get_conversion_type(char *str)
 {
-	t_format *format;
-	format = &(t_format) { 0, 0, 0, 0, 0, 0 };
-	return (format);
+	int i;
+
+	i = 0;
+	while (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' &&
+		str[i] <= 'Z')))
+		i++;
+	if (str[i] == 'i' || str[i] == 'd' || str[i] == 'u')
+		return (NUMERIC);
+	else if (str[i] == 'c' || str[i] == 's')
+		return (ALPHA);
+	else if (str[i] == '%')
+		return (PERCENT);
+	else if (str[i] == 'x' || str[i] == 'X')
+		return (HEXA);
+	else if (str[i] == 'p')
+		return (POINTER);
+	//evoir eventuellement ce qu il faudrait faire dans ce cas ?
+	else
+		exit (ERROR);
+	return (DONE);
 }
 
-/*
-int main(void)
+int	find_char(char *str, char c)
 {
-	t_format *format;
-	format = ft_initialize_struct();
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
 	return (0);
 }
-*/
+
