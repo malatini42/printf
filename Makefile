@@ -6,11 +6,14 @@
 #    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/04 11:10:11 by malatini         ###   ########.fr        #
+#    Updated: 2021/03/06 15:41:26 by malatini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	ft_printf.c
+SRCS =	./cors/ft_printf.c \
+		./cors/cors_utils.c \
+		./cors/struct.c \
+
 
 OBJS = ${SRCS:.c=.o}
 

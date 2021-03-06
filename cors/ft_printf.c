@@ -6,11 +6,11 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:06 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 13:22:42 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/06 16:12:39 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 /*
 void	ft_putchar(char c)

@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:22 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 13:39:47 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/06 13:56:42 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,4 @@ int is_numeric_conv(char c)
 }
 */
 
-int found_type(char *str)
-{
-	int i;
 
-	i = 0;
-	while (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= )
-}

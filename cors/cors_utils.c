@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cors.c                                          :+:      :+:    :+:   */
+/*   cors_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 13:15:07 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 15:26:49 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/06 15:37:52 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.c"
+#include "../ft_printf.h"
 
 int get_conversion_type(char *str)
 {
@@ -49,4 +49,3 @@ int	find_char(char *str, char c)
 	}
 	return (0);
 }
-
