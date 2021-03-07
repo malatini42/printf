@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:39:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/06 16:58:18 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/07 11:03:05 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
 {
 	t_format format;
 	format = ft_initialize_struct();
-	printf_struct(format);
+	printf_struct(&format);
 	/*
 	char str[10] = "%0*i";
 	fill_type_in_struct(str, format);
