@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/07 14:11:01 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:23:57 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		fill_dash_indicator(char *str, t_format *format)
 {
 	int dash;
 
-	dash = find_char(str, '-');
+	dash = found_char(str, '-');
 	if (dash == 1)
 	{
 		format->indicator[1] = 1;
@@ -37,8 +37,8 @@ int fill_zero_indicator(char *str, t_format *format)
 {
 	if (found_char(str, '-') == 1)
 	{
-		format.indicator[0] = 0;
-		format.indicator[1] = 1;
+		format->indicator[0] = 0;
+		format->indicator[1] = 1;
 		return (0);
 	}
 	else
@@ -46,8 +46,8 @@ int fill_zero_indicator(char *str, t_format *format)
 		//Attention a revoir cette partie la en cas d erreur
 		if (str[1] == '0')
 		{
-			format.indicator[0] = 1;
-			format.indicator[1]
+			format->indicator[0] = 1;
+			format->indicator[1] = 0;
 			return (1);
 		}
 	}

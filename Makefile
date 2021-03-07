@@ -6,16 +6,15 @@
 #    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/07 14:15:05 by malatini         ###   ########.fr        #
+#    Updated: 2021/03/07 15:13:50 by malatini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =
-		./cors/fill_struct.c \
+SRCS =	./cors/fill_struct.c \
 		./cors/get_struct.c \
 		./cors/struct.c \
 		./cors/utils.c \
-
+		./cors/split_formats.c \
 
 OBJS = ${SRCS:.c=.o}
 

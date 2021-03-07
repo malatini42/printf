@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/07 13:59:56 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/07 15:03:09 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int get_conversion_type(char *str)
 	while (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' &&
 		str[i] <= 'Z')))
 		i++;
-	if (str[i] == 'i' || str[i] == 'd' || str[i] == 'u')
-		return (NUMERIC);
+	if (str[i] == 'i' || str[i] == 'd')
+		return (SIGNED_INT);
+	else if (str[i] == 'u')
+		return (UNSIGNED_INT);
 	else if (str[i] == 'c' || str[i] == 's')
 		return (ALPHA);
 	else if (str[i] == '%')
@@ -32,6 +34,6 @@ int get_conversion_type(char *str)
 		return (POINTER);
 	//evoir eventuellement ce qu il faudrait faire dans ce cas ?
 	else
-		exit (ERROR);
+		exit (ERROR);//Ici on devrait faire appel au gestionnaire du parametre non valide
 	return (DONE);
 }
