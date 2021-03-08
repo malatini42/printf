@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:26:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 11:54:02 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:52:27 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_format	ft_initialize_struct(void)
 	format.indicator[1] = 0;
 	format.width = 0;
 	format.precision  = 0;
-	format.size = 0;
 	format.type = 0;
 	return (format);
 }
@@ -33,6 +32,21 @@ void fill_struct_element(char *str, t_format *format)
 	fill_zero_indicator(str, format);
 	fill_width(str, format);
 	fill_precision(str, format);
-	//fill_size(str, format);
 	fill_type(str, format);
+}
+
+//A tester
+t_format *declare_all_structs(int count, char *str)
+{
+	t_format struct[count];
+	int i;
+
+	i = 0;
+	while (i < count)
+	{
+		struct[i] = ft_initialize_struct();
+		fill_struct_with_element(str, struct[i]);
+		i++;
+	}
+	return (struct);
 }

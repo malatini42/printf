@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:09:54 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 10:37:41 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:46:37 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //OK - sauf cas % a revoir
 
-int		count_format(char *str)
+int		count_format(const char *str)
 {
 	int i;
 	int count;
@@ -34,7 +34,7 @@ int		count_format(char *str)
 	return (count);
 }
 
-char	*ft_format_dup(char *str)
+char	*ft_format_dup(const char *str)
 {
 	char *cpy;
 	int i;
@@ -58,7 +58,7 @@ char	*ft_format_dup(char *str)
 
 //ne pas oublier que la derniere ligne est volontaire
 //Revoir si ca peut marcher avec le % (pour l instant non)
-char **split_format(char *str)
+char **split_format(const char *str)
 {
 	char **strs;
 	int formats_number;

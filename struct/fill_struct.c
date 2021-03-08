@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 11:53:40 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:29:30 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //je retourne des int mais je pourrais retourner void techniquement
 //Attention je ne peux pas rajouter de fonction dans ce fichier
 
-int		fill_dash_indicator(char *str, t_format *format)
+int		fill_dash_indicator(const char *str, t_format *format)
 {
 	int dash;
 
@@ -27,7 +27,7 @@ int		fill_dash_indicator(char *str, t_format *format)
 	return (dash);
 }
 
-int fill_zero_indicator(char *str, t_format *format)
+int fill_zero_indicator(const char *str, t_format *format)
 {
 	if (found_char(str, '-') == 1)
 	{
@@ -48,7 +48,7 @@ int fill_zero_indicator(char *str, t_format *format)
 	return (0);
 }
 
-int	fill_width(char *str, t_format *format)
+int	fill_width(const char *str, t_format *format)
 {
 	int width;
 
@@ -57,7 +57,7 @@ int	fill_width(char *str, t_format *format)
 	return (width);
 }
 
-int fill_precision(char *str, t_format *format)
+int fill_precision(const char *str, t_format *format)
 {
 	int precision;
 
@@ -66,7 +66,7 @@ int fill_precision(char *str, t_format *format)
 	return (precision);
 }
 
-int		fill_type(char *str, t_format *format)
+int		fill_type(const char *str, t_format *format)
 {
 	int type;
 

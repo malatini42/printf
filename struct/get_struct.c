@@ -6,13 +6,13 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 12:00:36 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:29:10 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int get_conversion_type(char *str)
+int get_conversion_type(const char *str)
 {
 	int i;
 
@@ -47,8 +47,7 @@ int get_conversion_type(char *str)
 //Faire une condition si il y a un indicateur et else
 //Attention ca a l air d etre lent ?
 //A revoir car elle peut etre undefined ou autre
-//Attention au cas de l etoile
-int	get_width(char *str)
+int	get_width(const char *str)
 {
 	int width;
 	int i;
@@ -65,8 +64,7 @@ int	get_width(char *str)
 	return (width);
 }
 
-//Ne marchera pas dans le cas de l etoile
-int get_precision(char *str)
+int get_precision(const char *str)
 {
 	int precision;
 	int i;

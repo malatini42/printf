@@ -6,12 +6,13 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:39:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 11:55:47 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:25:53 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
 void	printf_struct(t_format *format)
 {
 	printf("1.0. Indicator 0 = %i\n", format->indicator[0]);
@@ -21,6 +22,7 @@ void	printf_struct(t_format *format)
 	printf("4. Size - = %i\n", format->size);
 	printf("5. Type - = %i\n", format->type);
 }
+*/
 
 int main(void)
 {
@@ -31,6 +33,7 @@ int main(void)
 	fill_struct_element(str, &format);
 	printf_struct(&format);
 	*/
-	get_precision("%-00123.8d");
+	char str[25] = "c 'est Mahaut !";
+	ft_printf("coucou %s\n", str);
 	return (0);
 }

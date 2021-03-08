@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 11:55:13 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:47:22 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct	s_format
 	int width;
 	int	precision;
 	int length;
-	int size;
 	int	type;
 }				t_format;
 
@@ -67,9 +66,10 @@ int is_alpha_conv(char c);//Plus utilise ?
 ** UTILS
 */
 
-int		found_char(char *str, char c);
+int		found_char(const char *str, char c);
 int		is_correct_type(char c);
 int		ft_isdigit(int c);
+void	ft_putchar(char c);
 
 /*
 ** struct part
@@ -80,20 +80,20 @@ t_format	ft_initialize_struct(void);
 /*
 ** get_struct
 */
-int			get_conversion_type(char *str);
-int			get_width(char *str);
-int			get_precision(char *str);
+int			get_conversion_type(const char *str);
+int			get_width(const char *str);
+int			get_precision(const char *str);
 
-int			fill_dash_indicator(char *str, t_format *format);
-int			fill_type(char *str, t_format *format);
-int			fill_zero_indicator(char *str, t_format *format);
+int			fill_dash_indicator(const char *str, t_format *format);
+int			fill_type(const char *str, t_format *format);
+int			fill_zero_indicator(const char *str, t_format *format);
+//Ne peut pas etre const
 void		fill_struct_element(char *str, t_format *format);
-int			fill_width(char *str, t_format *format);
-int			fill_precision(char *str, t_format *format);
+int			fill_width(const char *str, t_format *format);
+int			fill_precision(const char *str, t_format *format);
 
-int			count_format(char *str);
-char		*ft_format_dup(char *str);
-char		**split_format(char *str);
+int			count_format(const char *str);
+char		*ft_format_dup(const char *str);
+char		**split_format(const char *str);
 
 #endif
-

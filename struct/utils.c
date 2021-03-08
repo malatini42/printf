@@ -6,11 +6,16 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 13:15:07 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 11:22:32 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:41:17 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int	ft_isdigit(int c)
 {
@@ -19,7 +24,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	found_char(char *str, char c)
+int	found_char(const char *str, char c)
 {
 	int i;
 
