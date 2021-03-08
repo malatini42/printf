@@ -6,20 +6,14 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/07 14:23:57 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:53:40 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		fill_type(char *str, t_format *format)
-{
-	int type;
-
-	type = get_conversion_type(str);
-	format->type = type;
-	return (type);
-}
+//je retourne des int mais je pourrais retourner void techniquement
+//Attention je ne peux pas rajouter de fonction dans ce fichier
 
 int		fill_dash_indicator(char *str, t_format *format)
 {
@@ -52,4 +46,31 @@ int fill_zero_indicator(char *str, t_format *format)
 		}
 	}
 	return (0);
+}
+
+int	fill_width(char *str, t_format *format)
+{
+	int width;
+
+	width = get_width(str);
+	format->width = width;
+	return (width);
+}
+
+int fill_precision(char *str, t_format *format)
+{
+	int precision;
+
+	precision = get_precision(str);
+	format->precision = precision;
+	return (precision);
+}
+
+int		fill_type(char *str, t_format *format)
+{
+	int type;
+
+	type = get_conversion_type(str);
+	format->type = type;
+	return (type);
 }

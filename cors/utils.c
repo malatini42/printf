@@ -6,11 +6,18 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 13:15:07 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/07 16:00:21 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:22:32 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 int	found_char(char *str, char c)
 {
@@ -29,7 +36,9 @@ int	found_char(char *str, char c)
 int	is_correct_type(char c)
 {
 	if (c == 'i' || c == 'd' || c == 'u' || c == 's' || c == 'c' ||
-		c == 'x' || c == 'X' || c == 'p')//Attention au cas du %
+		c == 'x' || c == 'X' || c == 'p')//|| c == '%' Attention a ce cas
+	{
 		return (1);
+	}
 	return (0);
 }

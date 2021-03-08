@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:39:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/07 15:57:42 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:55:47 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	printf_struct(t_format *format)
 
 int main(void)
 {
-	/*
+	/* initialisation et assignation de la struct
 	t_format format;
 	format = ft_initialize_struct();
 	char str[10] = "%0-*s";
 	fill_struct_element(str, &format);
 	printf_struct(&format);
 	*/
-	printf("%s\n", ft_format_dup("%-...ilpop"));
+	get_precision("%-00123.8d");
 	return (0);
 }
