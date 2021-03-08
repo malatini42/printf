@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:09:54 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:46:37 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:28:11 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_format_dup(const char *str)
 }
 
 //ne pas oublier que la derniere ligne est volontaire
-//Revoir si ca peut marcher avec le % (pour l instant non)
+//Revoir si ca peut marcher avec le % (pour l instant non) !
 char **split_format(const char *str)
 {
 	char **strs;

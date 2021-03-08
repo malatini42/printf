@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:29:30 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:25:56 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int fill_zero_indicator(const char *str, t_format *format)
 	}
 	else
 	{
-		//Attention a revoir cette partie la en cas d erreur
 		if (str[1] == '0')
 		{
 			format->indicator[0] = 1;

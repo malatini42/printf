@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:47:22 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:41:25 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,57 +40,72 @@ typedef struct	s_format
 	int	type;
 }				t_format;
 
-int		ft_printf(const char *format, ...);
-
 /*
-** pf_numeric.c
-*/
-
-int is_numeric_conv(char c);//Plus utilise ?
-
-/*
-** pf_alpha.c
-*/
-
-int is_alpha_conv(char c);//Plus utilise ?
-
-/*
-** pf_percent.c
+** ints
 */
 
 /*
-** pf_pointer.c
+** chars
+*/
+
+/*
+** percent
+*/
+
+/*
+** pointer
 */
 
 /*
 ** UTILS
 */
 
-int		found_char(const char *str, char c);
-int		is_correct_type(char c);
-int		ft_isdigit(int c);
-void	ft_putchar(char c);
+int			found_char(const char *str, char c);
+int			is_correct_type(char c);
+int			ft_isdigit(int c);
+void		ft_putchar(char c);
 
 /*
-** struct part
+** ft_printf.c
+*/
+
+int			ft_printf(const char *format, ...);
+
+/*
+** struct.c
 */
 
 t_format	ft_initialize_struct(void);
+void		fill_struct_element(char *str, t_format *format);
+t_format	*di_all_structs(int count, char *str);
 
 /*
-** get_struct
+** get_struct.c
 */
+
 int			get_conversion_type(const char *str);
 int			get_width(const char *str);
 int			get_precision(const char *str);
 
+/*
+** handle_star.c
+*/
+
+
+
+/*
+** fill_struct.c
+*/
+
 int			fill_dash_indicator(const char *str, t_format *format);
-int			fill_type(const char *str, t_format *format);
 int			fill_zero_indicator(const char *str, t_format *format);
-//Ne peut pas etre const
-void		fill_struct_element(char *str, t_format *format);
 int			fill_width(const char *str, t_format *format);
 int			fill_precision(const char *str, t_format *format);
+int			fill_type(const char *str, t_format *format);
+
+/*
+** split_formats.c
+*/
 
 int			count_format(const char *str);
 char		*ft_format_dup(const char *str);

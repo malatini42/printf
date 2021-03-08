@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 13:15:07 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:41:17 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:15:52 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	found_char(const char *str, char c)
 int	is_correct_type(char c)
 {
 	if (c == 'i' || c == 'd' || c == 'u' || c == 's' || c == 'c' ||
-		c == 'x' || c == 'X' || c == 'p')//|| c == '%' Attention a ce cas
+		c == 'x' || c == 'X' || c == 'p')//|| c == '%' Attention a ce cas (a revoir)
 	{
 		return (1);
 	}

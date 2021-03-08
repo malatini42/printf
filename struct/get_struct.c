@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:29:10 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:26:24 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,6 @@ int get_conversion_type(const char *str)
 	return (DONE);
 }
 
-/*
-** Largeur est facultatif et arrive apres l indicateur s il y en a
-** Largeur est un entier decimal non negatif qui controle le nombre minimal de
-** caractere qui sont generes.
-*/
-
-//Faire une condition si il y a un indicateur et else
-//Attention ca a l air d etre lent ?
-//A revoir car elle peut etre undefined ou autre
 int	get_width(const char *str)
 {
 	int width;
@@ -79,6 +70,5 @@ int get_precision(const char *str)
 		precision = precision * 10 + str[i] - '0';
 		i++;
 	}
-	printf("%i\n", precision);
 	return (precision);
 }

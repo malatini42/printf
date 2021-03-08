@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:26:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 13:52:27 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:45:03 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ t_format	ft_initialize_struct(void)
 	return (format);
 }
 
-//Je vais faire un structure pour chaque chaine formattee rencontree
-//A verifier quand toutes les fonctions seront faites
-void fill_struct_element(char *str, t_format *format)
+void	fill_struct_element(char *str, t_format *format)
 {
 	fill_dash_indicator(str, format);
 	fill_zero_indicator(str, format);
@@ -35,18 +33,20 @@ void fill_struct_element(char *str, t_format *format)
 	fill_type(str, format);
 }
 
+
 //A tester
-t_format *declare_all_structs(int count, char *str)
+t_format	*di_all_structs(const char *str)
 {
-	t_format struct[count];
+	t_format f_str[count_format(str)];
 	int i;
 
 	i = 0;
-	while (i < count)
+	while (i < count_format(str))
 	{
-		struct[i] = ft_initialize_struct();
-		fill_struct_with_element(str, struct[i]);
+		f_str[i] = ft_initialize_struct();
+		fill_struct_with_element(str, f_str[i]);
 		i++;
 	}
-	return (struct);
+	f_str[i] = ft_initialize_struct();
+	return (f_str);
 }
