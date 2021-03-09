@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 18:26:24 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:48:45 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int get_conversion_type(const char *str)
 		return (SIGNED_INT);
 	else if (str[i] == 'u')
 		return (UNSIGNED_INT);
-	else if (str[i] == 'c' || str[i] == 's')
-		return (ALPHA);
+	else if (str[i] == 'c')
+		return (CHAR);
+	else if (str[i] == 's')
+		return (CHAR_STAR);
 	else if (str[i] == '%')
 		return (PERCENT);
 	else if (str[i] == 'x' || str[i] == 'X')

@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:06 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 10:54:57 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:51:09 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,31 @@
 //decale si %
 //Il me faut les fonctions pour les args !
 
-int		print_c_b_c(const char *format, t_format *s_format)
+//revoir si on a vraiment besoin de tout ces parametres
+//A retester
+int		print_c_b_c(const char *format, t_format *s_format, int count, char **sf_strs)
 {
 	//va falloir gerer les etoiles
+	(void)count;
+	(void)sf_strs;
+	(void)s_format;
 	int i;
 	int met_percent;
+	int j;
 
 	i = 0;
+	j = 0;
 	met_percent = 0;
 	while (format[i])
 	{
 		//Attention au cas du %
 		if (format[i] == '%')
 		{
-
+			//renvoyer vers la fonction qui affichera avec la bonne struct
+			//manage_print(s_format[j]);
+			j++;
 			while ((is_correct_type(format[i]) != 1))
-			{
-				//renvoyer vers la fonction qui affichera avec la bonne struct
 				i++;
-			}
 		}
 		if (format[i] != '%')
 			ft_putchar(format[i]);
@@ -70,10 +76,12 @@ int		ft_printf(const char *format, ...)
 	sf_strs = split_format(format);
 	f_struct = di_all_structs(format);
 	count = count_total_format(format);
+	/* OK
 	while (count--)
 	{
 		printf("%s\n", sf_strs[count]);
 		printf_struct(&f_struct[count]);
 	}
+	*/
 	return (1);
 }

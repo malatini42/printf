@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 10:58:13 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:11:10 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct	s_format
 	int indicator[2];//0 = 0 et 1 = dash
 	int width;
 	int	precision;
-	int length;
 	int	type;
 }				t_format;
 
@@ -66,13 +65,15 @@ int			found_char(const char *str, char c);
 int			is_correct_type(char c);
 int			ft_isdigit(int c);
 void		ft_putchar(char c);
+void		ft_putnbr(int nbr);
 
 /*
 ** ft_printf.c
 */
 
 int			ft_printf(const char *format, ...);
-int			print_c_b_c(const char *format, t_format *s_format);
+//revoir si on a vraiment besoin de tout ces parametres
+int			print_c_b_c(const char *format, t_format *s_format, int count, char **sf_strs);
 
 /*
 ** struct.c

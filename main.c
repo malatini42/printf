@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:39:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 11:02:15 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:57:51 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 		i++;
 	}
 	*/
-	int n = 65;
-	ft_printf(hello%i\n, n);
+	int n = 0;
+	//ft_printf(hello%i\n, n);
 	return (0);
 }

@@ -6,12 +6,13 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 10:52:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 11:02:40 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:49:23 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+//J ai besoin de lui envoyer chaque struct[i]
 /*A revoir, ne peut pas compiler en l etat
 int		manage_print(t_format *s_format)
 {
