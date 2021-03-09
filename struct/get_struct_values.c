@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_struct.c                                       :+:      :+:    :+:   */
+/*   get_struct_values.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 11:48:45 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:18:26 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	get_width(const char *str)
 	return (width);
 }
 
+//Attention il faudrait verifier qu aucun '-' ne soit rentre
 int get_precision(const char *str)
 {
 	int precision;

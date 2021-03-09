@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 12:11:10 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 16:04:53 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,21 @@ typedef struct	s_format
 }				t_format;
 
 /*
-** ints
+** signed int
 */
+
+int		manage_signed_int(t_format *format, int arg);
+int 	manage_zero_indicator_si(t_format *format, int arg);
+int 	manage_dash_indicator_si(t_format *format, int arg);
+
+/*
+** unsigned int
+*/
+
+int		manage_unsigned_int(t_format *format, unsigned int arg);
+int 	manage_zero_indicator_ui(t_format *format, unsigned int arg);
+int		manage_dash_indicator_ui(t_format *format, unsigned int arg);
+
 
 /*
 ** chars
@@ -73,7 +86,7 @@ void		ft_putnbr(int nbr);
 
 int			ft_printf(const char *format, ...);
 //revoir si on a vraiment besoin de tout ces parametres
-int			print_c_b_c(const char *format, t_format *s_format, int count, char **sf_strs);
+//int			print_c_b_c(const char *format, t_format *s_format, int count, char **sf_strs);
 
 /*
 ** struct.c
@@ -89,7 +102,7 @@ t_format	*di_all_structs(const char *str);
 
 int			get_conversion_type(const char *str);
 int			get_width(const char *str);
-int			get_precision(const char *str);
+int			get_precision(const char *str);//Attention il faudrait verifier qu aucun '-' ne soit rentre
 
 /*
 ** handle_star.c

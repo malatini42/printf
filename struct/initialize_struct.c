@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:26:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 10:42:01 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:00:22 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	fill_struct_element(char *str, t_format *format)
 	fill_type(str, format);
 }
 
-//A tester
 t_format	*di_all_structs(const char *str)
 {
 	t_format	*f_str;
@@ -52,7 +51,6 @@ t_format	*di_all_structs(const char *str)
 		fill_struct_element(splitted_format[i], &f_str[i]);
 		i++;
 	}
-	//Struct bidon vide pour que ce soit propre (a verifier)
 	f_str[i] = ft_initialize_struct();
 	return (f_str);
 }

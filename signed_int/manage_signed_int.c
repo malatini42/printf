@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simplest_si.c                                      :+:      :+:    :+:   */
+/*   manage_signed_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:00:04 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 12:13:00 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 15:31:00 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,28 @@
 //revoir le nom, pas terrible - faire une grosse fonction et voir comment
 //on pourra decouper - en l'état on ne peut pas fonctionner comme ca
 
-int		simplest_si(t_format *format)
+/*
+int 	manage_zero_indicator_si(t_format *format, int arg)
 {
-	int i;
+	//faire les tests
+}
+*/
 
-	i = 0;
-	if (format->indicator[0] == 0 && format->indicator[0] == 0 && format->width == 0 &&
-		format->precision == 0 && format->type == UNSIGNED_INT)
-		//printf et return
+/*
+int 	manage_dash_indicator_si(t_format *format, int arg)
+{
+	//faire les tests
+}
+*/
+
+//Il faut gerer ca apres la precision et la width
+/*
+int		manage_signed_int(t_format *format, int arg)
+{
+	if (format->indicator[0] == 1)
+		manage_zero_indicator_si(format, arg);
+	else if (format->indicator[1] == 1)
+		manage_dash_indicator_si(format, arg);
 	return (0);
 }
+*/
