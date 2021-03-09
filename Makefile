@@ -6,7 +6,7 @@
 #    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/08 18:25:26 by malatini         ###   ########.fr        #
+#    Updated: 2021/03/09 08:37:17 by malatini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,7 @@ SRCS =	./struct/fill_struct.c \
 		./struct/struct.c \
 		./struct/utils.c \
 		./struct/split_formats.c \
-		./struct/handle_star.c \
-		./struct/ft_printf.c \
-		./struct/handle_star.c \
+		./struct/ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:26:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 18:45:03 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 08:32:55 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,26 @@ void	fill_struct_element(char *str, t_format *format)
 	fill_type(str, format);
 }
 
-
 //A tester
 t_format	*di_all_structs(const char *str)
 {
-	t_format f_str[count_format(str)];
-	int i;
+	t_format	*f_str;
+	int			i;
+	int			count;
+	char		**splitted_format;
 
+	count = count_format(str);
+	if (!(f_str = (t_format *)malloc(sizeof(t_format) * (count))))
+		return (NULL);
+	splitted_format = split_format(str);
 	i = 0;
-	while (i < count_format(str))
+	while (i < count)
 	{
 		f_str[i] = ft_initialize_struct();
-		fill_struct_with_element(str, f_str[i]);
+		fill_struct_element(splitted_format[i], &f_str[i]);
 		i++;
 	}
+	//Struct bidon vide pour que ce soit propre (a verifier)
 	f_str[i] = ft_initialize_struct();
 	return (f_str);
 }

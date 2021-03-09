@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:09:54 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 18:28:11 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 08:39:57 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		count_format(const char *str)
 
 	i = 0;
 	count = 0;
+	//Attention il faudrait faire une condition pour le %%
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -40,6 +41,7 @@ char	*ft_format_dup(const char *str)
 	int i;
 
 	i = 0;
+	//Attention on a exclu le %
 	while (str[i] && (is_correct_type(str[i]) != 1))
 		i++;
 	if (!(cpy = (char *)malloc(sizeof(char) * (i + 2))))
@@ -79,13 +81,10 @@ char **split_format(const char *str)
 		if (str[i] == '%')
 		{
 			strs[j] = ft_format_dup(str + i);
-			printf("%s\n", strs[j]);
 			j++;
 		}
 		i++;
 	}
 	strs[++j] = NULL;
-	printf("%s\n", strs[j]);
-	printf("%d\n", j);
 	return (strs);
 }

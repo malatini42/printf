@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/08 18:41:25 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 08:26:15 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			ft_printf(const char *format, ...);
 
 t_format	ft_initialize_struct(void);
 void		fill_struct_element(char *str, t_format *format);
-t_format	*di_all_structs(int count, char *str);
+t_format	*di_all_structs(const char *str);
 
 /*
 ** get_struct.c
