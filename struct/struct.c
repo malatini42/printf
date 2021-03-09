@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 15:26:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 08:32:55 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 10:42:01 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_format	*di_all_structs(const char *str)
 	int			count;
 	char		**splitted_format;
 
-	count = count_format(str);
+	count = count_total_format(str);
 	if (!(f_str = (t_format *)malloc(sizeof(t_format) * (count))))
 		return (NULL);
 	splitted_format = split_format(str);

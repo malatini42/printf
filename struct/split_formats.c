@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:09:54 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 08:39:57 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/09 10:36:37 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 //OK - sauf cas % a revoir
 
-int		count_format(const char *str)
+//Fonction a revoir / Attention j ai change le nom
+int		count_total_format(const char *str)
 {
 	int i;
 	int count;
@@ -69,7 +70,7 @@ char **split_format(const char *str)
 
 	if (!(str))
 		exit (1);
-	formats_number = count_format(str);
+	formats_number = count_total_format(str);
 	if (!(strs = (char **)malloc(sizeof(char *) * (formats_number + 1))))
 		return (NULL);
 	i = 0;
