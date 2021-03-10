@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_i.c                                         :+:      :+:    :+:   */
+/*   manage_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 12:00:04 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 17:38:11 by malatini         ###   ########.fr       */
+/*   Created: 2021/03/10 16:16:16 by malatini          #+#    #+#             */
+/*   Updated: 2021/03/10 17:39:35 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//On est arriver jusque la en gardant la liste comme parametre
-//on sait donc que le type est signed int
-
-/*
-int 	manage_zero_indicator_si(t_format *format, int arg)
+int		manage_percent(t_format *format)
 {
-	//faire les tests
-}
-*/
-
-/*
-int 	manage_dash_indicator_si(t_format *format, int arg)
-{
-	//faire les tests
-}
-*/
-
-//Il faut gerer ca apres la precision et la width
-
-int		manage_i(t_format *format)
-{
-	(void)format;
+	if (format->indicator[0] == 0 && format->indicator[1] == 0 &&
+		format->width == 0 && format->precision == 0)
+	{
+		ft_putstr("%%");
+		return (2);
+	}
 	return (0);
 }

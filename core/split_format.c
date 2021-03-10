@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:44:57 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 15:44:59 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 19:46:52 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_format_dup(const char *str)
 		i++;
 	if (!(cpy = (char *)malloc(sizeof(char) * (i + 2))))
 		return (NULL);
-	i = 0;
+	i = 1;
+	cpy[0] = '%';
 	while (str[i] && (!(is_correct_type(str[i]))))
 	{
 		cpy[i] = str[i];
@@ -71,7 +72,7 @@ char **split_format(const char *str)
 	if (!(str))
 		exit (1);
 	formats_number = count_total_format(str);
-	if (!(strs = (char **)malloc(sizeof(char *) * (formats_number + 1))))
+	if (!(strs = (char **)malloc(sizeof(char *) * (formats_number))))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -83,6 +84,7 @@ char **split_format(const char *str)
 		{
 			strs[j] = ft_format_dup(str + i);
 			j++;
+			i = i + find_next_correct_type_no_p(str + i);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 10:55:08 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 19:43:21 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ void		ft_putchar(char c);
 void		ft_putnbr(int nbr);
 int			ft_strlen(const char *s);
 
+int			is_correct_spec(char *s);
+int			ft_putstr(char *str);
+int			find_next_correct_type_no_p(const char *str);
+//No "p" pour no %
+int			is_correct_type_no_p(char c);
+
 /*
 ** ft_printf.c
 */
@@ -82,9 +88,11 @@ int			ft_printf(const char *format, ...);
 ** struct.c
 */
 
-t_format	ft_initialize_struct(void);
+t_format	*ft_initialize_struct(void);
 void		fill_struct_element(char *str, t_format *format);
-t_format	*di_all_structs(const char *str);
+t_format	*declare_initialize_struct(char *str);
+//Pas utiles, voir les autres fonctions utilisees
+//t_format	*di_all_structs(const char *str);
 
 /*
 ** get_struct.c
@@ -122,14 +130,14 @@ char		**split_format(const char *str);
 ** manage_type.c a revoir (autres fonctions dans fichiers separes)
 */
 
-int			manage_type(t_format *s_format, va_list arg_ptr);
-int			manage_i(t_format *s_format, va_list arg_ptr);
-int			manage_u(t_format *s_format, va_list arg_ptr);
-int			manage_c(t_format *s_format, va_list arg_ptr);
-int			manage_s(t_format *s_format, va_list arg_ptr);
-int			manage_percent(t_format *s_format, va_list arg_ptr);
-int			manage_hexa(t_format *s_format, va_list arg_ptr);
-int			manage_pointer(t_format *s_format, va_list arg_ptr);
+int			manage_type(const char *format, int j);
+int			manage_i(t_format *s_format);
+int			manage_u(t_format *s_format);
+int			manage_c(t_format *s_format);
+int			manage_s(t_format *s_format);
+int			manage_percent(t_format *s_format);
+int			manage_hexa(t_format *s_format);
+int			manage_pointer(t_format *s_format);
 
 /*
 ** Affichage pour test
