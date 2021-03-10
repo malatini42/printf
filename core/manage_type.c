@@ -6,28 +6,28 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:42:59 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 15:43:02 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 10:55:14 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		manage_type(t_format *s_format)
+int		manage_type(t_format *s_format, va_list arg_ptr)
 {
 	if (s_format->type == SIGNED_INT)
-		manage_signed_int(s_format);
+		manage_i(s_format, arg_ptr);
 	else if (s_format->type == UNSIGNED_INT)
-		manage_unsigned_int(s_format);
+		manage_u(s_format, arg_ptr);
 	else if (s_format->type == CHAR)
-		manage_char(s_format);
+		manage_c(s_format, arg_ptr);
 	else if (s_format->type == CHAR_STAR)
-		manage_char_star(s_format);
+		manage_s(s_format, arg_ptr);
 	else if (s_format->type == PERCENT)
-		manage_percent(s_format);
+		manage_percent(s_format, arg_ptr);
 	else if (s_format->type == HEXA)
-		manage_hexa(s_format);
+		manage_hexa(s_format, arg_ptr);
 	else if (s_format->type == POINTER)
-		manage_pointer(s_format);
+		manage_pointer(s_format, arg_ptr);
 	else
 		return (ERROR);
 	return (DONE);

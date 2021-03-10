@@ -6,7 +6,7 @@
 #    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/09 16:04:51 by malatini         ###   ########.fr        #
+#    Updated: 2021/03/09 19:16:23 by malatini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,16 @@ SRCS =	./struct/initialize_struct.c \
 		./struct/fill_struct_values.c \
 		./core/split_format.c \
 		./core/ft_printf.c \
-		./utils/utils.c \
+		./utils/utils1.c \
+		./utils/utils2.c \
+		./core/manage_type.c \
+		./i/manage_i.c \
+		./u/manage_u.c \
+		./c/manage_c.c \
+		./s/manage_s.c \
+		./percent/manage_percent.c \
+		./hexa/manage_hexa.c \
+		./pointer/manage_pointer.c \
 
 OBJS = ${SRCS:.c=.o}
 

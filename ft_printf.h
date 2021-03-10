@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 16:04:53 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 10:55:08 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define CHAR_STAR 4
 # define PERCENT 5
 # define HEXA 6
-# define POINTER 7
+# define POINTER 7//type unsigned long long?git 
 
 //Faire des enum pour les types etc ?
 typedef struct	s_format
@@ -45,18 +45,9 @@ typedef struct	s_format
 ** signed int
 */
 
-int		manage_signed_int(t_format *format, int arg);
-int 	manage_zero_indicator_si(t_format *format, int arg);
-int 	manage_dash_indicator_si(t_format *format, int arg);
-
 /*
 ** unsigned int
 */
-
-int		manage_unsigned_int(t_format *format, unsigned int arg);
-int 	manage_zero_indicator_ui(t_format *format, unsigned int arg);
-int		manage_dash_indicator_ui(t_format *format, unsigned int arg);
-
 
 /*
 ** chars
@@ -79,14 +70,13 @@ int			is_correct_type(char c);
 int			ft_isdigit(int c);
 void		ft_putchar(char c);
 void		ft_putnbr(int nbr);
+int			ft_strlen(const char *s);
 
 /*
 ** ft_printf.c
 */
 
 int			ft_printf(const char *format, ...);
-//revoir si on a vraiment besoin de tout ces parametres
-//int			print_c_b_c(const char *format, t_format *s_format, int count, char **sf_strs);
 
 /*
 ** struct.c
@@ -127,6 +117,19 @@ int			fill_type(const char *str, t_format *format);
 int			count_total_format(const char *str);
 char		*ft_format_dup(const char *str);
 char		**split_format(const char *str);
+
+/*
+** manage_type.c a revoir (autres fonctions dans fichiers separes)
+*/
+
+int			manage_type(t_format *s_format, va_list arg_ptr);
+int			manage_i(t_format *s_format, va_list arg_ptr);
+int			manage_u(t_format *s_format, va_list arg_ptr);
+int			manage_c(t_format *s_format, va_list arg_ptr);
+int			manage_s(t_format *s_format, va_list arg_ptr);
+int			manage_percent(t_format *s_format, va_list arg_ptr);
+int			manage_hexa(t_format *s_format, va_list arg_ptr);
+int			manage_pointer(t_format *s_format, va_list arg_ptr);
 
 /*
 ** Affichage pour test
