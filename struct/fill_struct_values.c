@@ -6,67 +6,69 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/09 15:46:40 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 21:45:26 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		fill_dash_indicator(const char *str, t_format *format)
+//revoir les fonctions, revoir les parametres
+bool	justify_left(const char *str, t_format *format)
 {
-	int dash;
+	bool dash;
 
-	dash = found_char(str, '-');
-	if (dash == 1)
-	{
-		format->indicator[1] = 1;
-	}
+	//voir si le cas fonctionne
+	dash = (bool)found_char(str, '-');
+	if (dash == true)
+		format->flags.justify_left = true;
 	return (dash);
 }
 
-int fill_zero_indicator(const char *str, t_format *format)
+bool	zero_pad(const char *str, t_format *format)
 {
 	if (found_char(str, '-') == 1)
 	{
-		format->indicator[0] = 0;
-		format->indicator[1] = 1;
-		return (0);
+		format->flags.zero_pad = false;
+		format->flags.justify_left = true;
+		return (false);
 	}
 	else
 	{
 		if (str[1] == '0')
 		{
-			format->indicator[0] = 1;
-			format->indicator[1] = 0;
-			return (1);
+			format->flags.zero_pad = true;
+			format->flags.justify_left = false;	
 		}
+		return (true);
 	}
-	return (0);
 }
 
-int	fill_width(const char *str, t_format *format)
+int		fill_width(const char *str, t_format *format, int *printed_chars)
 {
 	int width;
 
-	width = get_width(str);
+	//revoir si ok
+	width = get_width(str, printed_chars);
 	format->width = width;
 	return (width);
 }
 
-int fill_precision(const char *str, t_format *format)
+int		fill_precision(const char *str, t_format *format, int *printed_chars)
 {
 	int precision;
 
-	precision = get_precision(str);
+	//revoir si ok
+	precision = get_precision(str, printed_chars);
 	format->precision = precision;
 	return (precision);
 }
 
-int		fill_type(const char *str, t_format *format)
+int		fill_type(const char *str, t_format *format, int *printed_chars)
 {
 	int type;
 
-	type = get_conversion_type(str);
+	//revoir si la printed chars correspond bien
+	type = get_type(str, printed_chars);
 	format->type = type;
 	return (type);
 }

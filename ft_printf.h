@@ -6,13 +6,12 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 19:43:21 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 21:46:42 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//verifier les fonctions mentionnees
-//En fin de journee faire le menage et organisation pour que ce soit propre.
 //Reprendre tous les retours en int pour en faire des ssize_t ?
+//On peut aussi faire plusieurs fichiers .h à la fin pour que ce soit + propre
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -21,48 +20,31 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
-# define ERROR -1
-# define DONE 0
-# define SIGNED_INT 1
-# define UNSIGNED_INT 2
-# define CHAR 3
-# define CHAR_STAR 4
-# define PERCENT 5
-# define HEXA 6
-# define POINTER 7//type unsigned long long?git 
+# define UID 1
+# define C 2
+# define S 3
+# define PC 4
+# define H 5
+# define P 6 
 
-//Faire des enum pour les types etc ?
+typedef	struct	s_flags
+{
+	bool justify_left;
+	bool zero_pad;
+}				t_flags;
+
 typedef struct	s_format
 {
-	int indicator[2];//0 = 0 et 1 = dash
+	t_flags flags;
 	int width;
 	int	precision;
 	int	type;
 }				t_format;
 
 /*
-** signed int
-*/
-
-/*
-** unsigned int
-*/
-
-/*
-** chars
-*/
-
-/*
-** percent
-*/
-
-/*
-** pointer
-*/
-
-/*
-** UTILS
+** UTILS - a mettre séparément plus tard
 */
 
 int			found_char(const char *str, char c);
@@ -74,9 +56,10 @@ int			ft_strlen(const char *s);
 
 int			is_correct_spec(char *s);
 int			ft_putstr(char *str);
-int			find_next_correct_type_no_p(const char *str);
-//No "p" pour no %
-int			is_correct_type_no_p(char c);
+int			find_next_correct_type_no_pc(const char *str);
+int			count_total_pc(const char *str);
+//No "pc" pour no %
+int			is_correct_type_no_pc(char c);
 
 /*
 ** ft_printf.c
@@ -85,7 +68,7 @@ int			is_correct_type_no_p(char c);
 int			ft_printf(const char *format, ...);
 
 /*
-** struct.c
+** struct.c - revoir - méthode à la déroute
 */
 
 t_format	*ft_initialize_struct(void);
@@ -95,34 +78,26 @@ t_format	*declare_initialize_struct(char *str);
 //t_format	*di_all_structs(const char *str);
 
 /*
-** get_struct.c
+** get_struct.c - a revoir
 */
 
-int			get_conversion_type(const char *str);
-int			get_width(const char *str);
-int			get_precision(const char *str);//Attention il faudrait verifier qu aucun '-' ne soit rentre
+int			get_width(const char *str, int *printed_chars);
+int			get_precision(const char *str, int *printed_chars);
 
 /*
-** handle_star.c
+** fill_struct.c - revoir les parametres etc
 */
 
-
+bool		justify_left(const char *str, t_format *format);
+bool		zero_pad(const char *str, t_format *format);
+int			fill_width(const char *str, t_format *format, int *printed_chars);
+int			fill_precision(const char *str, t_format *format, int *printed_chars);
+int			fill_type(const char *str, t_format *format, int *printed_chars);
 
 /*
-** fill_struct.c
+** split_formats.c - revoir - méthode à la déroute
 */
 
-int			fill_dash_indicator(const char *str, t_format *format);
-int			fill_zero_indicator(const char *str, t_format *format);
-int			fill_width(const char *str, t_format *format);
-int			fill_precision(const char *str, t_format *format);
-int			fill_type(const char *str, t_format *format);
-
-/*
-** split_formats.c
-*/
-
-int			count_total_format(const char *str);
 char		*ft_format_dup(const char *str);
 char		**split_format(const char *str);
 
@@ -130,19 +105,10 @@ char		**split_format(const char *str);
 ** manage_type.c a revoir (autres fonctions dans fichiers separes)
 */
 
-int			manage_type(const char *format, int j);
-int			manage_i(t_format *s_format);
-int			manage_u(t_format *s_format);
-int			manage_c(t_format *s_format);
-int			manage_s(t_format *s_format);
-int			manage_percent(t_format *s_format);
-int			manage_hexa(t_format *s_format);
-int			manage_pointer(t_format *s_format);
+int			get_type(const char *format, int *printed_chars);
 
-/*
-** Affichage pour test
-*/
+//typepc
 
-void		printf_struct(t_format *format);
+void	print_pc(const char *str, t_format *format, int *print_chars);
 
 #endif

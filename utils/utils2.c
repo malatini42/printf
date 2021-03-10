@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:38:25 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 19:42:52 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/10 21:48:09 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
+//Attention avec les string c est casse gueule
 int is_correct_spec(char *s)
 {
 	int i;
@@ -51,7 +52,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int	is_correct_type_no_p(char c)
+int	is_correct_type_no_pc(char c)
 {
 	if (c == 'i' || c == 'd' || c == 'u' || c == 's' || c == 'c' ||
 		c == 'x' || c == 'X' || c == 'p')
@@ -61,7 +62,7 @@ int	is_correct_type_no_p(char c)
 	return (0);
 }
 
-int find_next_correct_type_no_p(const char *str)
+int find_next_correct_type_no_pc(const char *str)
 {
 	int i;
 
