@@ -6,28 +6,25 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 12:17:11 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 13:58:56 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//Verifier qu on a bien le bon nombre d element dans va_list
+//Verifier qu on a bien le bon nombre d element dans va_list?
+
 int		parse(const char *format, va_list arg_ptr, int *printed_chars)
 {
 	t_format	*spec;
-	int			arg;
 
-	arg = va_arg(arg_ptr, int);
 	spec = ft_initialize_struct();
 	fill_struct(&format[*printed_chars], spec);
 	printstruct(spec);
 	printf("-----------------\n");
 	printf("etoile trouvee : %i\n", found_star(format));
 	if (found_star(format))
-	{
-		handle_star(format, spec, arg);
-	}
+		handle_star(format, spec, arg_ptr);
 	printf("-----------------\n");
 	printstruct(spec);
 	return (0);

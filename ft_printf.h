@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 12:04:06 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 13:40:34 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			find_next_correct_type_no_pc(const char *str);
 int			count_total_pc(const char *str);
 int			found_star(const char *str);
 int			is_after_star(const char *str, char c);
-int			handle_star(const char *str, t_format *format, int arg_ptr);
+int			handle_star(const char *str, t_format *format, va_list arg_ptr);
 //No "pc" pour no %
 int			is_correct_type_no_pc(char c);
 int			found_char_until_type(const char *str, char c);
