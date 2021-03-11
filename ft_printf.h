@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 13:40:34 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:01:36 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_putchar(char c);
 void		ft_putnbr(int nbr);
 int			ft_strlen(const char *s);
 
-int			is_correct_spec(char *s);
+int			is_correct_spec(char *s);//revoir si cette fonction est utilisable?
 int			ft_putstr(char *str);
 int			find_next_correct_type_no_pc(const char *str);
 int			count_total_pc(const char *str);
@@ -64,6 +64,7 @@ int			handle_star(const char *str, t_format *format, va_list arg_ptr);
 //No "pc" pour no %
 int			is_correct_type_no_pc(char c);
 int			found_char_until_type(const char *str, char c);
+int			len_until_end_format(const char *str);
 
 /*
 ** ft_printf.c

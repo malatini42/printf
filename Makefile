@@ -6,7 +6,7 @@
 #    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/11 14:40:51 by malatini         ###   ########.fr        #
+#    Updated: 2021/03/11 18:09:07 by malatini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,13 @@ SRCS =	./main/ft_printf.c \
 		./utils/utils2.c \
 		./utils/utils3.c \
 		./utils/utils4.c \
+		./utils/utils5.c \
 		./type_pc/type_pc.c \
 
 OBJS = ${SRCS:.c=.o}
 
 NAME = libftprintf.a
-CC = gcc -g3
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 

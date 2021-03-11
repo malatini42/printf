@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 13:58:56 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:28:04 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,40 @@ int		parse(const char *format, va_list arg_ptr, int *printed_chars)
 
 	spec = ft_initialize_struct();
 	fill_struct(&format[*printed_chars], spec);
-	printstruct(spec);
-	printf("-----------------\n");
-	printf("etoile trouvee : %i\n", found_star(format));
 	if (found_star(format))
 		handle_star(format, spec, arg_ptr);
-	printf("-----------------\n");
-	printstruct(spec);
+	//printstruct(spec);
+	//faire l'affichage
+	//compter combien on a afficher de caractere (pas la fonction ci dessous)
+	*printed_chars += len_until_end_format(format);
+	printf("\nValeur de printed_chars : %i\n", *printed_chars);
 	return (0);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	int i;
 	int printed_chars;
 	va_list arg_ptr;
 
-	i = 0;
 	printed_chars = 0;
 	va_start(arg_ptr, format);
-	while (format[i])
+	while (format[printed_chars])
 	{
-		if (format[i] == '%')
+		if (format[printed_chars] == '%')
 		{
 			if (format[1] == '\0')
 				return (-1);
-			parse(&format[i], arg_ptr, &printed_chars);
+			parse(&format[printed_chars], arg_ptr, &printed_chars);
 			/*
 			else if (!(print_per_c(&format[i], arg_ptr, &printed_chars)))
 				return (-1);
 			*/
 		}
 		else
-		{
-			ft_putchar(format[i]);
-			printed_chars++;
-		}
-		i++;
+			ft_putchar(format[printed_chars]);
+		printed_chars++;
 	}
 	va_end(arg_ptr);
+	printf("\nValeur finale : %i\n", printed_chars);
 	return (printed_chars);
 }
