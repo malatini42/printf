@@ -6,27 +6,49 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 21:45:26 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:37:10 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//revoir les fonctions, revoir les parametres
+t_format	*ft_initialize_struct(void)
+{
+	t_format *format;
+
+	if (!(format = (t_format *)malloc(sizeof(t_format))))
+		return (NULL);
+	format->flags.justify_left = false;
+	format->flags.zero_pad = false;
+	format->width = 0;
+	format->precision  = 0;
+	format->type = 0;
+	return (format);
+}
+
 bool	justify_left(const char *str, t_format *format)
 {
 	bool dash;
+	int i;
 
-	//voir si le cas fonctionne
-	dash = (bool)found_char(str, '-');
-	if (dash == true)
+	i = 0;
+	dash = false;
+	if (found_char(str, '-'))
+	{
+		dash = true;
 		format->flags.justify_left = true;
+	}
+	i++;
 	return (dash);
 }
 
 bool	zero_pad(const char *str, t_format *format)
 {
-	if (found_char(str, '-') == 1)
+	int i;
+
+	i = 0;
+	//faire une fonction qui compte la longueur pour ne pas depasser le type
+	if (found_char_until_type(str, '-') != 0)
 	{
 		format->flags.zero_pad = false;
 		format->flags.justify_left = true;
@@ -37,38 +59,28 @@ bool	zero_pad(const char *str, t_format *format)
 		if (str[1] == '0')
 		{
 			format->flags.zero_pad = true;
-			format->flags.justify_left = false;	
+			format->flags.justify_left = false;
+			return (true);
 		}
-		return (true);
 	}
+	i++;
+	return (false);
 }
 
-int		fill_width(const char *str, t_format *format, int *printed_chars)
-{
-	int width;
-
-	//revoir si ok
-	width = get_width(str, printed_chars);
-	format->width = width;
-	return (width);
-}
-
-int		fill_precision(const char *str, t_format *format, int *printed_chars)
-{
-	int precision;
-
-	//revoir si ok
-	precision = get_precision(str, printed_chars);
-	format->precision = precision;
-	return (precision);
-}
-
-int		fill_type(const char *str, t_format *format, int *printed_chars)
+int		fill_type(const char *str, t_format *format)
 {
 	int type;
 
-	//revoir si la printed chars correspond bien
-	type = get_type(str, printed_chars);
+	type = get_type(str);
 	format->type = type;
 	return (type);
+}
+
+void	fill_struct(const char *str, t_format *format)
+{
+	justify_left(str, format);
+	zero_pad(str, format);
+	get_width(str, format);
+	get_precision(str, format);
+	fill_type(str, format);
 }

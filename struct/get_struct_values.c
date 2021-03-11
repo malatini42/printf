@@ -6,18 +6,16 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/10 21:49:34 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:38:04 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//faire une condition pour printed_chars
-int		get_width(const char *str, int *printed_chars)
+int		get_width(const char *str, t_format *format)
 {
 	int width;
 	int i;
-	(void)printed_chars;
 
 	width = 0;
 	i = 1;
@@ -28,15 +26,14 @@ int		get_width(const char *str, int *printed_chars)
 		width = width * 10 + str[i] - '0';
 		i++;
 	}
+	format->width = width;
 	return (width);
 }
 
-//revoir
-int		get_precision(const char *str, int *printed_chars)
+int		get_precision(const char *str, t_format *format)
 {
 	int precision;
 	int i;
-	(void)printed_chars;
 
 	precision = 0;
 	i = 1;
@@ -48,5 +45,31 @@ int		get_precision(const char *str, int *printed_chars)
 		precision = precision * 10 + str[i] - '0';
 		i++;
 	}
+	format->precision = precision;
 	return (precision);
+}
+
+int		get_type(const char *format)
+{
+	int i;
+
+	i = 0;
+	while (!((format[i] >= 'a' && format[i] <= 'z') || (format[i] >= 'A' &&
+		format[i] <= 'Z')))
+		i++;
+	if (format[i] == 'i' || format[i] == 'd' || format[i] == 'u')
+		return (UID);
+	else if (format[i] == 'c')
+		return (C);
+	else if (format[i] == 's')
+		return (S);
+	else if (format[i] == '%')
+		return (PC);
+	else if (format[i] == 'x' || format[i] == 'X')
+		return (H);
+	else if (format[i] == 'p')
+		return (P);
+	else
+		return (-1);
+	return (0);
 }
