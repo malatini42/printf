@@ -6,12 +6,15 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 18:01:36 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 10:28:19 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //Reprendre tous les retours en int pour en faire des ssize_t ?
 //On peut aussi faire plusieurs fichiers .h à la fin pour que ce soit + propre
+//Remettre le nom des parametres au propre
+//Effacer la fonction len_util_format
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -65,6 +68,8 @@ int			handle_star(const char *str, t_format *format, va_list arg_ptr);
 int			is_correct_type_no_pc(char c);
 int			found_char_until_type(const char *str, char c);
 int			len_until_end_format(const char *str);
+char		c_padding_to_print(t_format *format);
+int			diff_width_type(t_format *format);
 
 /*
 ** ft_printf.c
@@ -84,6 +89,7 @@ t_format	*ft_initialize_struct(void);
 int			get_width(const char *str, t_format *format);
 int			get_precision(const char *str, t_format *format);
 int			get_type(const char *format);
+int			print_type(const char *format, t_format *spec, int *printed_chars);
 
 /*
 ** fill_struct.c
@@ -102,7 +108,7 @@ void		fill_struct(const char *str, t_format *format);
 
 //typepc
 
-void		print_pc(const char *str, t_format *format, int *print_chars);
+int		print_pc(const char *format, t_format *spec, int *print_chars);
 
 //test
 

@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 18:28:04 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 12:12:25 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,47 @@ int		parse(const char *format, va_list arg_ptr, int *printed_chars)
 	fill_struct(&format[*printed_chars], spec);
 	if (found_star(format))
 		handle_star(format, spec, arg_ptr);
+	print_type(format, spec, printed_chars);
 	//printstruct(spec);
-	//faire l'affichage
-	//compter combien on a afficher de caractere (pas la fonction ci dessous)
-	*printed_chars += len_until_end_format(format);
-	printf("\nValeur de printed_chars : %i\n", *printed_chars);
+	//printf("\nValeur de printed_chars : %i\n", *printed_chars);
 	return (0);
 }
 
+//Voir si on devrait ajouter une variable pour suivre sur quel caractere on se trouve
 int		ft_printf(const char *format, ...)
 {
-	int printed_chars;
+	int 	printed_chars;
 	va_list arg_ptr;
+	int		i;
 
 	printed_chars = 0;
+	i = 0;
 	va_start(arg_ptr, format);
-	while (format[printed_chars])
+	while (format[i])
 	{
-		if (format[printed_chars] == '%')
+		if (format[i] == '%')
 		{
+			//rajouter la fonction null spec ?
+			/*
 			if (format[1] == '\0')
 				return (-1);
-			parse(&format[printed_chars], arg_ptr, &printed_chars);
+			*/
+			i++;
+			parse(&format[i], arg_ptr, &printed_chars);
+			//break;
 			/*
 			else if (!(print_per_c(&format[i], arg_ptr, &printed_chars)))
 				return (-1);
 			*/
 		}
 		else
+		{
 			ft_putchar(format[printed_chars]);
-		printed_chars++;
+		}
+		printed_chars++;//a revoir
+		i++;
 	}
 	va_end(arg_ptr);
-	printf("\nValeur finale : %i\n", printed_chars);
+	//printf("\nValeur finale : %i\n", printed_chars);
 	return (printed_chars);
 }

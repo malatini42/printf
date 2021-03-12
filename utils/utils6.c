@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils5.c                                           :+:      :+:    :+:   */
+/*   utils6.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 17:58:52 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 10:09:13 by malatini         ###   ########.fr       */
+/*   Created: 2021/03/12 10:09:29 by malatini          #+#    #+#             */
+/*   Updated: 2021/03/12 10:42:53 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//Supprimer fichier ?
-
-int	len_until_end_format(const char *str)
+//outils print type_pc - reutilisable
+char	c_padding_to_print(t_format *format)
 {
-	int i;
+	char to_print;
 
-	i = 1;
-	while (str[i])
-	{
-		if (is_correct_type(str[i]))
-			return (i);
-		i++;
-	}
-	return (-1);
+	if (format->flags.zero_pad == 1)
+		to_print = '0';
+	else
+		to_print = ' ';
+	return (to_print);
+}
+
+int		diff_width_type(t_format *format)
+{
+	int diff_width;
+
+	diff_width = 0;
+	if (format->type == PC && format->precision == 0)//Voir si impact precision?Test sur la precision ?
+		diff_width = format->width - 1;
+	return (diff_width);
 }
