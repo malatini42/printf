@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:56:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 12:12:30 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:46:07 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		get_width(const char *str, t_format *format)
 	int i;
 
 	width = 0;
-	i = 1;
+	i = (format->type == PC) ? 1 : 0;
 	while (str[i] == '-' || str[i] == '0')
 		i++;
 	while (ft_isdigit(str[i]) && str[i])
@@ -36,9 +36,11 @@ int		get_precision(const char *str, t_format *format)
 	int i;
 
 	precision = 0;
-	i = 1;
+	i = (format->type == PC) ? 1 : 0;
 	while (str[i] && str[i] != '.')
 		i++;
+	if (!str[i])
+		return (precision);
 	i++;
 	while (ft_isdigit(str[i]) && str[i])
 	{
@@ -73,15 +75,18 @@ int		get_type(const char *format)
 	return (0);
 }
 
-int		print_type(const char *format, t_format *spec, int *printed_chars)
+void	print_type(t_format *spec)
 {
 	int type;
-	(void)spec;
-	(void)printed_chars;
-	type = get_type(format);
-	if (type == PC)
-		return (print_pc(format, spec, printed_chars));
 	/*
+	printf("1----------------\n");
+	printstruct(spec);
+	printf("1----------------\n");
+	*/
+	type = spec->type;
+	if (type == PC)
+		print_pc(spec);
+	/*s
 	else if (type == UID)
 		return (print_uid(format));
 	else if (type == C)
@@ -89,11 +94,10 @@ int		print_type(const char *format, t_format *spec, int *printed_chars)
 	else if (type == S)
 		return (print_s(format));
 	else if (type == H)
-		return (print_pc(format));
+		return (print_pc(format));s
 	else if (type == P)
 		return (print_p(format));
 	else
 		return (-1);
 	*/
-	return (0);
 }

@@ -6,14 +6,13 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 13:44:42 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:45:55 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //Reprendre tous les retours en int pour en faire des ssize_t ?
 //On peut aussi faire plusieurs fichiers .h à la fin pour que ce soit + propre
 //Remettre le nom des parametres au propre
-//Effacer la fonction len_util_format
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -44,6 +43,7 @@ typedef struct	s_format
 	int width;
 	int	precision;
 	int	type;
+	int printed_chars;//pas sure de l idee
 }				t_format;
 
 /*
@@ -67,16 +67,16 @@ int			handle_star(const char *str, t_format *format, va_list arg_ptr);
 //No "pc" pour no %
 int			is_correct_type_no_pc(char c);
 int			found_char_until_type(const char *str, char c);
-int			len_until_end_format(const char *str);
+int			len_until_end_format(const char *str, t_format *spec);
 char		c_padding_to_print(t_format *format);
-int			diff_width_type(t_format *format);
+int			diff_width(t_format *format);
 
 /*
 ** ft_printf.c
 */
 
 int			ft_printf(const char *format, ...);
-t_format	*parse(const char *format, va_list arg_ptr, int *printed_chars);
+t_format	*parse(const char *format, va_list arg_ptr, int printed_charss);
 /*
 ** struct.c
 */
@@ -90,7 +90,7 @@ t_format	*ft_initialize_struct(void);
 int			get_width(const char *str, t_format *format);
 int			get_precision(const char *str, t_format *format);
 int			get_type(const char *format);
-int			print_type(const char *format, t_format *spec, int *printed_chars);
+void		print_type(t_format *spec);
 
 /*
 ** fill_struct.c
@@ -106,10 +106,9 @@ void		fill_struct(const char *str, t_format *format);
 /*
 ** manage_type.c a revoir (autres fonctions dans fichiers separes)
 */
-
 //typepc
 
-int		print_pc(const char *format, t_format *spec, int *print_chars);
+void		print_pc(t_format *spec);
 
 //test
 

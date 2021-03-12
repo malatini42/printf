@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 13:27:50 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:43:53 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 //Pourquoi on aurait besoin de str ? A priori pas besoin
 
-int		print_pc(const char *str, t_format *format, int *printed_chars)
+void	print_pc(t_format *format)
 {
-	(void)str;
 	char to_print;
 	int nb_pad;
+	int i;
 
+	i = 0;
 	to_print = c_padding_to_print(format);
-	nb_pad = diff_width_type(format);
+	nb_pad = diff_width(format);
 	while (nb_pad > 0)
 	{
 		ft_putchar(to_print);
-		printed_chars++;
+		i++;
 		nb_pad--;
 	}
 	ft_putchar('%');
-	printed_chars++;
-	return (*printed_chars);
-	//return (format->width > 0 ? (*printed_chars += format->width) : (*printed_chars));
-	//return  (*printed_chars);
+	i++;
+	format->printed_chars += i;
 }

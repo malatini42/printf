@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:55:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/11 11:37:10 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:41:30 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_format	*ft_initialize_struct(void)
 	format->width = 0;
 	format->precision  = 0;
 	format->type = 0;
+	format->printed_chars = 0;
 	return (format);
 }
 
@@ -78,9 +79,9 @@ int		fill_type(const char *str, t_format *format)
 
 void	fill_struct(const char *str, t_format *format)
 {
+	fill_type(str, format);
 	justify_left(str, format);
 	zero_pad(str, format);
 	get_width(str, format);
 	get_precision(str, format);
-	fill_type(str, format);
 }

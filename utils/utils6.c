@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:09:29 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 10:42:53 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:16:21 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,25 @@ char	c_padding_to_print(t_format *format)
 {
 	char to_print;
 
+	to_print = ' ';
 	if (format->flags.zero_pad == 1)
 		to_print = '0';
-	else
-		to_print = ' ';
 	return (to_print);
 }
 
-int		diff_width_type(t_format *format)
+//en cours pour pc, tester pour les autres
+int		diff_width(t_format *format)
 {
 	int diff_width;
 
 	diff_width = 0;
-	if (format->type == PC && format->precision == 0)//Voir si impact precision?Test sur la precision ?
+	/*
+	printf("2----------------\n");
+	printstruct(format);
+	printf("2----------------\n");
+	*/
+	if (format->precision == 0)
 		diff_width = format->width - 1;
+	//printf("La diff width est: %i\n", diff_width);
 	return (diff_width);
 }
