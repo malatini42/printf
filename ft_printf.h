@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 10:28:19 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:44:42 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			diff_width_type(t_format *format);
 */
 
 int			ft_printf(const char *format, ...);
+t_format	*parse(const char *format, va_list arg_ptr, int *printed_chars);
 /*
 ** struct.c
 */

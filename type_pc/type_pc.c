@@ -6,7 +6,7 @@
 /*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/12 11:49:43 by malatini         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:27:50 by malatini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ int		print_pc(const char *str, t_format *format, int *printed_chars)
 	while (nb_pad > 0)
 	{
 		ft_putchar(to_print);
-		//printed_chars++;
+		printed_chars++;
 		nb_pad--;
 	}
 	ft_putchar('%');
-	//printed_chars++;
-	//pas les bonnes valeurs de retour
+	printed_chars++;
 	return (*printed_chars);
 	//return (format->width > 0 ? (*printed_chars += format->width) : (*printed_chars));
 	//return  (*printed_chars);
